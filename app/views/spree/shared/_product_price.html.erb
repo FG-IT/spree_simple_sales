@@ -1,0 +1,13 @@
+<% if current_variant.sale_price.present? %>
+  <div class="price__sale">
+    <span><%= display_price(current_variant) %></span>
+    <span><%= current_variant.
+              sale_price_in(current_currency).
+              display_price_including_vat_for(current_price_options).
+              to_html %></span>
+  </div>
+<% else %>
+  <div class="price__regular">
+    <span><%= display_price(current_variant) %></span>
+  </div>
+<% end %>
